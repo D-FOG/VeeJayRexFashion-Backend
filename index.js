@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const businessInterestRoutes = require('./routes/businessInterest.routes');
+const businessInterestRoutes = require('./routes/businessInterest.route');
 require('dotenv').config();
 
 // Initialize Express App
@@ -17,6 +17,14 @@ mongoose.connect(process.env.MONGO_URI, {
 })
 .then(() => console.log('MongoDB connected successfully'))
 .catch((err) => console.error('MongoDB connection error:', err));
+
+//get request to check if the server is running
+app.get("/", (req, res) => {
+  res.send(`
+    <h1>Welcome to the VeeJayRex Fashion API</h1>
+    <p>Check the docs 👉👉👉 <a href="https://documenter.getpostman.com/view/24619744/2sB2x2JZBT">here</a> !!</p>
+  `);
+});
 
 // Routes
 app.use('/api/business-interest', businessInterestRoutes);

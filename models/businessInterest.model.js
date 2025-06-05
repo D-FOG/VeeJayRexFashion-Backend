@@ -12,7 +12,7 @@ const businessInterestSchema = new mongoose.Schema({
     lowercase: true,
     trim: true
   },
-  whatsappNumber: {
+  phoneNumber: {
     type: String,
     required: true,
     trim: true
